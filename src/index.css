@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+p{
+  margin: 0;
+}
+
+input[type="number"]{
+  height: 35px;
+  border: 0;
+  outline: 0;
+  text-align: center;
+  font-size: 25px;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 400;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
