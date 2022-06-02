@@ -30,11 +30,16 @@ const Box = ({ index, position, data, selected, setSelected, showCheckBox=true, 
         gridColumnEnd: (!isNaN(position) ? parseInt(position)+2 : 0)}} data-index={index} data-position={position} data-data={data}>
             <span className={`box ${checkedBox ? "checked-box" : ""}`} 
             style={{
-            height: data,
+            height: `${data}px`,
             "--box-height": `${data}px`,
             "--box-position": `${position}`,
+            "--shadow-color": `${spanLength ? "rgb(32,76,234)" : 'red'}`
             }}>
-            {data}
+            {showCheckBox ? <input
+            style={{
+                width: `${data.toString().length}ch`,
+            }}
+             value={data} type="number" onChange={(event) => {setBoxList((prevBoxList) => {return {...prevBoxList, [index] : event.target.value}});setSelected((prevSelected) => {return {...prevSelected, [index]: event.target.value}}) }}/> : <p>{data}</p>}
             {showCheckBox && <input type="checkbox"
             className="checkbox"
             onInput={boxCheck} />}</span>
