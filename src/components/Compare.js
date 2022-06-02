@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Box from './Box.js'
 import './Compare.css'
 
-const Compare = ({ selected, setComparing }) => {
+const Compare = ({ selected, setSelected, setComparing }) => {
   const [selObj, setSelObj] = useState({})
   const [closeCompare, setCloseCompare] = useState(false)
 
