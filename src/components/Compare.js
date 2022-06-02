@@ -88,11 +88,12 @@ const Compare = ({ selected, setSelected, setComparing }) => {
   }, [])
   
   
+  
   return (
     <section className={`overlay ${closeCompare ? 'close' : '' }`} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}>
         <section className='compare-window' dragger="dragger" 
         style={{"--selected-length": `${Object.keys(selected).length}`,
-        "--max-height": `${Math.max(...Object.values(selected)) + 4}px`
+        "--max-height": `calc(100vh - 80px)`
       }}
         onMouseDown={handleMouseDown}>
             {Object.keys(selObj).map((i) => {
