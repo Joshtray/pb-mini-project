@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState} from 'react'
 import "./Box.css"
 
 const Box = ({ index, position, data, selected, setSelected, showCheckBox=true, maxHeight=250}) => {
