@@ -34,7 +34,7 @@
     min-height: 30%;
     width: max-content;
     height: max-content;
-    height: var(--max-height);
+    max-height: var(--max-height);
     opacity: 100%;
     background-color: white;
     display: -ms-grid;
@@ -45,7 +45,7 @@
     grid-template-rows: 1fr;
     justify-content: center;
     position: relative;
-    padding: 50px;
+    padding: 50px 50px 30px 50px;
     border-radius: 5px;
 }
 .overlay .compare-window .box-container {
@@ -57,6 +57,12 @@
 }
 .overlay .compare-window .box-container .static {
     z-index: 3;
+}
+.overlay .box{
+    position: fixed!important;
+}
+.overlay .box ~ .box{
+    position: relative!important;
 }
 .overlay .compare-window .checked-box {
     border-color: rgb(24 61 191);
