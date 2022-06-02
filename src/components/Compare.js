@@ -43,6 +43,8 @@ const Compare = ({ selected, setSelected, setComparing }) => {
       event.target.parentElement.children[0].style.position = "fixed"
       event.target.parentElement.children[0].style.left = initLeft + "px"
       setTimeout(() => {
+        event.target.parentElement.children[0].style.position = "static"
+        mouseDownPos.style.position = "static"
         event.target.parentElement.children[0].style.transition = "none"
         mouseDownPos.style.transition = "none"
         setSelObj({...selObj, 
@@ -93,6 +95,7 @@ const Compare = ({ selected, setSelected, setComparing }) => {
     <section className={`overlay ${closeCompare ? 'close' : '' }`} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}>
         <section className='compare-window' dragger="dragger" 
         style={{"--selected-length": `${Object.keys(selected).length}`,
+        "--window-height": `${Math.max(...Object.values(selected)) + 4}px`,
         "--max-height": `calc(100vh - 80px)`
       }}
         onMouseDown={handleMouseDown}>

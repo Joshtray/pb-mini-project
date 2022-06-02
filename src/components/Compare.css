@@ -33,7 +33,7 @@
     min-width: 30%;
     min-height: 30%;
     width: max-content;
-    height: max-content;
+    height: var(--window-height);
     max-height: var(--max-height);
     opacity: 100%;
     background-color: white;
@@ -59,12 +59,12 @@
 .overlay .compare-window .box-container .static {
     z-index: 3;
 }
-.overlay .box{
+/* .overlay .box{
     position: fixed!important;
 }
 .overlay .box ~ .box{
     position: relative!important;
-}
+} */
 .overlay .compare-window .checked-box {
     border-color: rgb(24 61 191);
     color: black;
