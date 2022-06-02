@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Box from './Box.js'
 import './Compare.css'
 
-const Compare = ({ selected, setComparing }) => {
+const Compare = ({ selected, setSelected, setComparing }) => {
   const [selObj, setSelObj] = useState({})
   const [closeCompare, setCloseCompare] = useState(false)
 
@@ -59,20 +59,41 @@ const Compare = ({ selected, setComparing }) => {
     }
   }
   useEffect(()=> {
-    var obj = {}
-    for (var i=0; i < Object.keys(selected).length; i++) {
-      obj[i] = {position: i, data: selected[Object.keys(selected)[i]]}
+    let obj = {}
+    let sortable = [];
+    console.log(Math.max(...Object.values(selected)))
+    for (var item in selected) {
+        sortable.push([item, selected[item]]);
     }
-    setSelObj(obj)
-    // eslint-disable-next-line
+
+    sortable.sort(function(a, b) {
+        return parseInt(a[1]) - parseInt(b[1]);
+    });
+    console.log("sortable",sortable)
+    // let objSorted = {}
+    // let index = 1
+    // sortable.forEach(function(item){
+    //     objSorted[index]=item[1]
+    //     index += 1 
+    // })
+    // console.log("objSorted",objSorted)
+    // setSelected(objSorted)
+    for (var i=0; i < sortable.length; i++) {
+      console.log(sortable[i][1])
+      obj[i + 1] = {"position": i, "data": sortable[i][1]}
+    }
+    setSelObj((prevSelObj) => {return obj})
+    console.log("selObj" , selObj)
+    console.log("selObj",selObj, obj, sortable)
   }, [])
+  
   
   
   return (
     <section className={`overlay ${closeCompare ? 'close' : '' }`} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}>
         <section className='compare-window' dragger="dragger" 
         style={{"--selected-length": `${Object.keys(selected).length}`,
-        "--max-height": `${Math.max(...Object.values(selected)) + 4}px`
+        "--max-height": `calc(100vh - 80px)`
       }}
         onMouseDown={handleMouseDown}>
             {Object.keys(selObj).map((i) => {

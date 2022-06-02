@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState} from 'react'
 import "./Box.css"
 
-const Box = ({ index, position, data, selected, setSelected, showCheckBox=true, maxHeight=250}) => {
+const Box = ({ index, position, data, selected, setSelected, showCheckBox=true, maxHeight=250, setBoxList}) => {
     const [checkedBox, setCheckedBox] = useState(!showCheckBox)
     const boxCheck = (e) => {
         if (e.target.checked) {
@@ -15,16 +15,31 @@ const Box = ({ index, position, data, selected, setSelected, showCheckBox=true, 
             setCheckedBox(false)
         }
     }
+
+    const [spanLength, setSpanLength] = useState(false);
+    useEffect(() => {
+        try {
+            setSpanLength(window.innerHeight - 80 >= data)
+          } catch (error) {
+            setSpanLength(false)
+          }
+    }, [ data, checkedBox])
+    
     return (
         <section className='box-container' style={{gridColumnStart: (!isNaN(position) ? parseInt(position)+1 : 0), 
         gridColumnEnd: (!isNaN(position) ? parseInt(position)+2 : 0)}} data-index={index} data-position={position} data-data={data}>
             <span className={`box ${checkedBox ? "checked-box" : ""}`} 
             style={{
-            height: data,
+            height: `${data}px`,
             "--box-height": `${data}px`,
             "--box-position": `${position}`,
+            "--shadow-color": `${spanLength ? "rgb(32,76,234)" : 'red'}`
             }}>
-            {data}
+            {showCheckBox ? <input
+            style={{
+                width: `${data.toString().length}ch`,
+            }}
+             value={data} type="number" onChange={(event) => {setBoxList((prevBoxList) => {return {...prevBoxList, [index] : event.target.value}});setSelected((prevSelected) => {return {...prevSelected, [index]: event.target.value}}) }}/> : <p>{data}</p>}
             {showCheckBox && <input type="checkbox"
             className="checkbox"
             onInput={boxCheck} />}</span>
