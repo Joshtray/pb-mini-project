@@ -4,13 +4,8 @@ import { useEffect, useState } from 'react';
 import Compare from './components/Compare';
 
 function App() {
-  const boxList = {
-    1: 100, 
-    2: 250,
-    3: 125,
-    4: 180,
-    5: 295,
-  }
+  const [boxList, setBoxList] = useState({1: "200", 2: "200", 3: "200"})
+  const [showAdd, setShowAdd] = useState(true)
   const [selected, setSelected] = useState({})
   const [compareEnabled, setCompareEnabled] = useState(false)
   const [comparing, setComparing] = useState(false)
