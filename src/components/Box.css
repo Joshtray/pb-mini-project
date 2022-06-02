@@ -7,6 +7,22 @@
     grid-row: 1 / 2;
 }
 
+.box-container:hover input[type="number"]{
+    border-color: rgba(0, 0, 0, 0.6);
+    width: 80%!important;
+}
+
+.box-container input[type="number"]{
+    border-bottom: 2.5px solid transparent; 
+    transition: width 0.5s ease-in-out;
+}
+
+.box-container input[type="number"]:focus-within{
+    width: 80%!important;
+    border-color: rgb(32 76 234);
+    border-radius: 0%;
+}
+
 .box {
     border: solid rgb(229 229 229) 2px;
     width: 150px;
