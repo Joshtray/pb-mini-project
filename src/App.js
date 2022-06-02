@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import Box from './components/Box.js';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import Compare from './components/Compare';
 
 function App() {
