@@ -1,6 +1,6 @@
 # Project URL
 
-https://web-dev-problems.github.io/pb-mini-project/
+https://tayomide.github.io/pb-mini-project/
 
 # Getting Started with Create React App
 
