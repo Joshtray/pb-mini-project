@@ -15,6 +15,16 @@ const Box = ({ index, position, data, selected, setSelected, showCheckBox=true, 
             setCheckedBox(false)
         }
     }
+
+    const [spanLength, setSpanLength] = useState(false);
+    useEffect(() => {
+        try {
+            setSpanLength(window.innerHeight - 80 >= data)
+          } catch (error) {
+            setSpanLength(false)
+          }
+    }, [ data, checkedBox])
+    
     return (
         <section className='box-container' style={{gridColumnStart: (!isNaN(position) ? parseInt(position)+1 : 0), 
         gridColumnEnd: (!isNaN(position) ? parseInt(position)+2 : 0)}} data-index={index} data-position={position} data-data={data}>
