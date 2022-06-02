@@ -26,7 +26,8 @@
 .box {
     border: solid rgb(229 229 229) 2px;
     width: 150px;
-    height: 150px;
+    min-height: 40px!important;
+    max-height: calc(100vh - 80px)!important;
     text-align: center;
     margin: 0px;
     display: flex;
@@ -50,7 +51,7 @@
 }
 .checked-box {
     border: solid transparent 2px;
-    box-shadow: 0px 0px 7px 1px rgb(32 76 234);
+    box-shadow: 0px 0px 7px 1px var(--shadow-color);
 }
 .box .checkbox {
     position: absolute;
