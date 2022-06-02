@@ -1,7 +1,7 @@
 import React, { useEffect, useState} from 'react'
 import "./Box.css"
 
-const Box = ({ index, position, data, selected, setSelected, showCheckBox=true, maxHeight=250}) => {
+const Box = ({ index, position, data, selected, setSelected, showCheckBox=true, maxHeight=250, setBoxList}) => {
     const [checkedBox, setCheckedBox] = useState(!showCheckBox)
     const boxCheck = (e) => {
         if (e.target.checked) {
@@ -10,7 +10,7 @@ const Box = ({ index, position, data, selected, setSelected, showCheckBox=true, 
         }
         else {
             setSelected(Object.fromEntries(Object.entries(selected).filter(([key, val]) => {
-                return key != index
+                return key !== index
             })))
             setCheckedBox(false)
         }
