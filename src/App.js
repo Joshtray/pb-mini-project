@@ -22,13 +22,20 @@ function App() {
     <div className="App">
       <section className='boxes'>
         {Object.keys(boxList).map((i) => {
-          return (<Box key={i} index={i} data={boxList[i]} selected = {selected} setSelected = {setSelected} />)
+          return (<Box key={i} index={i} data={boxList[i]} selected = {selected} setSelected = {setSelected} setBoxList={setBoxList} />)
         })}
-      </section>
+        { showAdd &&
+        <section className='box-container box-add'>
+            <span className='box' style={{height: "200px"}}>
+              <p onClick={(event) => {Object.keys(boxList).length < 8 && setBoxList((prevBoxList) => {Object.keys(prevBoxList).length === 7 && setShowAdd(false); return {...prevBoxList, [Object.keys(prevBoxList).length + 1] : "200"}})}}>+</p>
+            </span>
+        </section>
+        }
+      </section> 
       <section className='compare-section'><button className={`compare ${compareEnabled? "visible": ""}`} onClick={() => {
         compareEnabled && setComparing(true)
         }}>Compare</button></section>
-      {comparing && <Compare selected={selected} setComparing={setComparing} />}
+      {comparing && <Compare selected={selected} setSelected={setSelected} setComparing={setComparing} />}
     </div>
   );
 }
