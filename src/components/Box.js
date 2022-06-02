@@ -10,7 +10,7 @@ const Box = ({ index, position, data, selected, setSelected, showCheckBox=true, 
         }
         else {
             setSelected(Object.fromEntries(Object.entries(selected).filter(([key, val]) => {
-                return key != index
+                return key !== index
             })))
             setCheckedBox(false)
         }

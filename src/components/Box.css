@@ -1,7 +1,7 @@
 .box-container {
     width: 174px;
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: center;
     position: relative;
     grid-row: 1 / 2;

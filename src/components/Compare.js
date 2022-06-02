@@ -64,6 +64,7 @@ const Compare = ({ selected, setComparing }) => {
       obj[i] = {position: i, data: selected[Object.keys(selected)[i]]}
     }
     setSelObj(obj)
+    // eslint-disable-next-line
   }, [])
   
   
