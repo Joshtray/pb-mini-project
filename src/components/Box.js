@@ -39,7 +39,7 @@ const Box = ({ index, position, data, selected, setSelected, showCheckBox=true, 
             style={{
                 width: `${data.toString().length}ch`,
             }}
-             value={data} type="number" onChange={(event) => {setBoxList((prevBoxList) => {return {...prevBoxList, [index] : event.target.value}});setSelected((prevSelected) => {return {...prevSelected, [index]: event.target.value}}) }}/> : <p>{data}</p>}
+             value={data} type="number" onChange={(event) => {setBoxList((prevBoxList) => {return {...prevBoxList, [index] : event.target.value}});setSelected((prevSelected) => {return (prevSelected[index] ? {...prevSelected, [index]: event.target.value} : {...prevSelected})}) }}/> : <p>{data}</p>}
             {showCheckBox && <input type="checkbox"
             className="checkbox"
             onInput={boxCheck} />}</span>
