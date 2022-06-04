@@ -15,7 +15,9 @@ const Compare = ({ selected, setSelected, setComparing }) => {
       mouseDownPos = event.target.parentElement.children[0]
       mouseDownPos.style.position = "fixed"
       mouseDownPos.style.zIndex = 2
-      initTop = mouseDownPos.parentElement.getBoundingClientRect().y 
+      initTop2 = mouseDownPos.getBoundingClientRect().top
+      initLeft2 = mouseDownPos.getBoundingClientRect().left
+      initTop = mouseDownPos.parentElement.getBoundingClientRect().y
         + mouseDownPos.parentElement.getBoundingClientRect().height
         - mouseDownPos.getBoundingClientRect().height
       mouseDownPos.style.top = event.clientY - mouseDownPos.getBoundingClientRect().height/2 + "px";
