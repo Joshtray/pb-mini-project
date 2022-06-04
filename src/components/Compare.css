@@ -76,33 +76,10 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    /* z-index: 1; */
 }
 .overlay .compare-window .static {
     z-index: 3;
 }
-
-/* .overlay .compare-window .checked-box::after{
-    content: attr(data-data);
-    height: var(--box-height);
-    width: 174px;
-    /* position: relative; */
-    /* border: solid rgb(24 61 191) 2px;
-    position: var(--box-position);
-    top: var(--box-top);
-    left: var(--box-left);
-    /* width: 150px;
-    height: 150px; */
-    /* text-align: center; */
-    /* align-items: center;
-    justify-content: center; */
-    /* position: relative; */
-    /* grid-row: 1 /2; */
-    /* font-size: 25px;
-    border-radius: 5px;
-    color: black;
-    transition: 0.1s ease-in-out;
-    background-color: white; }*/
 
 .overlay .compare-window .close-compare {
     position: absolute;
