@@ -8,6 +8,8 @@ const Compare = ({ selected, setSelected, setComparing }) => {
 
   var mouseDownPos = null
   var initTop = null
+  var initTop2 = null
+  var initLeft2 = null
   const handleMouseDown = (event) => {
     if (event.target.classList.contains("checked-box")) {
       mouseDownPos = event.target.parentElement.children[0]
