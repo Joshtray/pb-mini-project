@@ -59,7 +59,10 @@ const Compare = ({ selected, setSelected, setComparing }) => {
       mouseDownPos.style.zIndex = 1
     }
     else if (mouseDownPos) {
-      mouseDownPos.style.position = "revert";
+      // mouseDownPos.style.position = "absolute";
+      mouseDownPos.style.top = initTop2 + "px"
+      mouseDownPos.style.left = initLeft2 + "px";
+      mouseDownPos.style.zIndex = 1;
     }
   }
   useEffect(()=> {
