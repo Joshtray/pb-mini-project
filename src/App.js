@@ -27,7 +27,7 @@ function App() {
         { showAdd &&
         <section className='box-container box-add'>
             <span className='box' style={{height: "200px"}}>
-              <p onClick={(event) => {Object.keys(boxList).length < 8 && setBoxList((prevBoxList) => {Object.keys(prevBoxList).length === 7 && setShowAdd(false); return {...prevBoxList, [Object.keys(prevBoxList).length + 1] : "200"}})}}>+</p>
+              <p onClick={(event) => {Object.keys(boxList).length < Math.floor(window.innerWidth / 174) && setBoxList((prevBoxList) => {Object.keys(prevBoxList).length === (Math.floor(window.innerWidth / 174) -1) && setShowAdd(false); return {...prevBoxList, [Object.keys(prevBoxList).length + 1] : "200"}})}}>+</p>
             </span>
         </section>
         }
